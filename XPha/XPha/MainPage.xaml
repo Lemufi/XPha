@@ -5,7 +5,7 @@
              BackgroundColor="DarkSalmon">
 
     <StackLayout>
-        <Label Text="V0.02" />
+        <Label Text="V0.03" />
         <Button x:Name="Button1"
             Text="Lemufi"
             FontSize="25"
