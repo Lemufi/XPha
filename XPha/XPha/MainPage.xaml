@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XPha.MainPage"
+             BackgroundColor="DarkSalmon">
+
+    <StackLayout>
+        <Label Text="V0.02" />
+        <Button x:Name="Button1"
+            Text="Lemufi"
+            FontSize="25"
+            FontAttributes="Bold"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="150"
+            BackgroundColor="DarkCyan"
+            TextColor="White"
+            BorderColor="White"
+            BorderWidth="3"
+            CornerRadius="5"
+            Clicked="Button1_Clicked"
+            Pressed="Button1_Pressed"
+            Released="Button1_Released"/>
+        <Entry x:Name="EntryText"
+               Placeholder="Entrez du texte ici"
+               Text=""/>
+    </StackLayout>
+
+</ContentPage>
