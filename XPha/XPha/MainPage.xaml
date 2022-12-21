@@ -5,7 +5,7 @@
              BackgroundColor="DarkSalmon">
 
     <StackLayout>
-        <Label Text="V0.03" />
+        <Label Text="V0.04" />
         <Button x:Name="Button1"
             Text="Lemufi"
             FontSize="25"
@@ -21,6 +21,7 @@
             Clicked="Button1_Clicked"
             Pressed="Button1_Pressed"
             Released="Button1_Released"/>
+        <Picker x:Name="Languages"/>
         <Entry x:Name="EntryText"
                Placeholder="Entrez du texte ici"
                Text=""/>

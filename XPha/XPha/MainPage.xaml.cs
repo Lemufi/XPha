@@ -37,27 +37,40 @@ namespace XPha
             button.BackgroundColor = Color.DarkCyan;
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            locales = await TextToSpeech.GetLocalesAsync();
+
+            foreach (var l in locales)
+                Languages.Items.Add(l.Name);
+        }
+
         private async void TextToSpeechMethod()
         {
-            locales = await TextToSpeech.GetLocalesAsync(); // Obtenir la langue de l'appareil pour le synthétiseur vocal
+            //locales = await TextToSpeech.GetLocalesAsync(); // Obtenir la langue de l'appareil pour le synthétiseur vocal.
+            //var locale = locales.Single(l => l.Name == "fr"); // Grab the first locale.
 
-            //var locale = locales.Single(l => l.Name == "fr"); // Grab the first locale
-
-            var settings = new SpeechOptions()
+            if (Languages.SelectedIndex > 0)
             {
-                Volume = .75f,
-                Pitch = 1.0f,
-                Locale = locales.Single(l => l.Name == "French (France)") // Definit la langue voulue dans la liste des Locales présentes
-            };
+                var settings = new SpeechOptions()
+                {
+                    Volume = .75f,
+                    Pitch = 1.0f,
+                    Locale = locales.Single(l => l.Name == Languages.SelectedItem.ToString()) // sélectionne la langue choisi par l'utilisateur dans le Picker.
+                    //Locale = locales.Single(l => l.Name == "French (France)") // Definit la langue voulue dans la liste des Locales présentes.
+                };
 
-            if (EntryText.Text == "")
-            {
-                EntryText.Text = "Gros Con";
-            }
+                    if (EntryText.Text == "")
+                    {
+                        EntryText.Text = "Gros Con";
+                    }
 
-            else
-            {
-                await TextToSpeech.SpeakAsync(EntryText.Text, settings);
+                    else
+                    {
+                        await TextToSpeech.SpeakAsync(EntryText.Text, settings);
+                    }
             }
         }
     }
