@@ -64,7 +64,7 @@ namespace XPha
 
                     if (EntryText.Text == "")
                     {
-                        EntryText.Text = "Gros Con";
+                        EntryText.Text = "";
                     }
 
                     else
